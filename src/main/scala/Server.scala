@@ -61,7 +61,7 @@ object Server extends IOApp {
     for {
       config <- fetchLatestConfig(configRef)
       _      <- PlexTokenSync.run(config, httpClient, runFullSync = true)
-      _      <- IO.sleep(19.minutes)
+      _      <- IO.sleep(5.minutes)
       _      <- plexFullSync(configRef, httpClient)
     } yield ()
 
